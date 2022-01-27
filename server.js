@@ -1,91 +1,60 @@
-const path = quire("path")
 const express = require("express");
-const fs = require("fs");
+const path = require("path");
+const fs = require("fs"); 
+const util = require("util");
 
+//Asynchronous Processes
+const readFileAsync = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
-
-//Path
-const db = path.join(__dirname, "/db")
-const mainPath = path.join(__dirname, "/public")
-
-
-
-// Setting the express server
+//Server
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Adding the port 
-const PORT = process.env.PORT || 3001;
-
-
-
-// Handling parsing data
-app.use(express.urlencoded({ extended: true }));
+// Parsing
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.urlencoded({ extended: true }));
+//dir_name is the full directory name on our computer
 
+//Middleware
+app.use(express.static("./public"));
 
-
-// HTML GET Requests:
-app.get("/notes", function(req, res) {
-    res.sendFile(path.join(mainPath, "notes.html"));
-});
-
-
-
-//API GET Requests:
+//API Route | "GET" request
 app.get("/api/notes", function(req, res) {
-    //google return json files using app.get
-    res.sendFile(path.join(db, "db.json"))
-    return res.body
-
-})
-app.get("*", function(req, res) {
-    res.sendFile(path.join(mainPath, "index.html"));
-});
-
-//API POST Requests:
-app.post("/api/notes", function(req, res) {
-    var savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    var newNote = req.body;
-
-
-    var uniqueId = (savedNotes.length).toString();
-    newNote.id = uniqueId;
-    savedNotes.push(newNote);
-
-
-    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
-    res.json(savedNotes);
-
-})
-
-
-//API DELETE Requests: 
-app.delete("/api/notes/:id", function(req, res) {
-
-    //read data
-    var savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    var noteID = req.params.id;
-    var newID = 0;
-
-    savedNotes = savedNotes.filter(currentNote => {
-
-        return currentNote.id != noteID;
-
+  readFileAsync("./db/db.json", "utf8").then(function(data) {
+      notes = [].concat(JSON.parse(data))
+      res.json(notes);
     })
+}); 
 
-    for (currentNote of savedNotes) {
-        currentNote.id = newID.toString();
-        newID++;
-    }
-
-    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
-    return res.json(savedNotes);
+//API Route | "POST" request
+app.post("/api/notes", function(req,res){
+  const note = req.body;
+  readFileAsync("./db/db.json", "utf8").then(function(data){
+    const notes = [].concat(JSON.parse(data));
+    note.id = notes.length + 1
+    notes.push(note);
+    return notes
+  }).then(function(notes){
+    writeFileAsync("./db/db.json", JSON.stringify(notes))
+    res.json(note);
+  })
 });
 
+//routes
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
+  });
 
-// LISTENER 
+app.get("/", function(req, res) {
+     res.sendFile(path.join(__dirname, "./public/index.html"));
+  });
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/index.html"));
+ });
+
+// Listening Port.  // Adding "0.0.0.0" fixed my port issue with Heroku
+app.listen(PORT, "0.0.0.0", function() {
+  console.log("App listening on PORT " + PORT);
 });
