@@ -3,21 +3,26 @@ const path = require("path");
 const fs = require("fs"); 
 const util = require("util");
 
+
 //Asynchronous Processes
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
+
 //Server
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 
 // Parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //dir_name is the full directory name on our computer
 
+
 //Middleware
 app.use(express.static("./public"));
+
 
 //API Route | "GET" request
 app.get("/api/notes", function(req, res) {
@@ -26,6 +31,7 @@ app.get("/api/notes", function(req, res) {
       res.json(notes);
     })
 }); 
+
 
 //API Route | "POST" request
 app.post("/api/notes", function(req,res){
@@ -40,6 +46,7 @@ app.post("/api/notes", function(req,res){
     res.json(note);
   })
 });
+  
 
 //routes
 app.get("/notes", function(req, res) {
