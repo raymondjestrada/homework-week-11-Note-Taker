@@ -1,23 +1,22 @@
-//Dependencies
-const path = require("path")
+const path = quire("path")
 const express = require("express");
 const fs = require("fs");
 
-//=============================================================================
+
 
 //Path
 const db = path.join(__dirname, "/db")
 const mainPath = path.join(__dirname, "/public")
 
-// ==============================================================================
+
 
 // Setting the express server
 const app = express();
-//===============================================================================
-// Adding the port 
-const PORT = process.env.PORT || 8000;
 
-//==============================================================================
+// Adding the port 
+const PORT = process.env.PORT || 3001;
+
+
 
 // Handling parsing data
 app.use(express.urlencoded({ extended: true }));
@@ -25,8 +24,6 @@ app.use(express.json());
 app.use(express.static("public"))
 
 
-// ================================================================================
-// OUR ROUTES
 
 // HTML GET Requests:
 app.get("/notes", function(req, res) {
@@ -58,7 +55,6 @@ app.post("/api/notes", function(req, res) {
 
 
     fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
-
     res.json(savedNotes);
 
 })
@@ -88,7 +84,6 @@ app.delete("/api/notes/:id", function(req, res) {
 });
 
 
-// =============================================================================
 // LISTENER 
 
 app.listen(PORT, function() {
