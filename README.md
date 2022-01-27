@@ -21,3 +21,7 @@ This project is not licensed.
 The following is needed to run the test: N/A
 ## Questions
 If you have any questions about the repo, open an issue or contact me directly at : https://github.com/raymondjestrada.
+
+Screenshot of the app:
+![image](https://user-images.githubusercontent.com/87677207/151308854-022420c2-e162-455b-9d6f-58017dca6d63.png)
+
