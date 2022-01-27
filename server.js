@@ -54,7 +54,7 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/index.html"));
  });
 
-// Listening Port.  // Adding "0.0.0.0" fixed my port issue with Heroku
+
 app.listen(PORT, "0.0.0.0", function() {
   console.log("App listening on PORT " + PORT);
 });
