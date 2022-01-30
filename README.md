@@ -26,8 +26,11 @@ To run to the app to `Heroku`, make sure your project is initialized as a Git re
 Create a new Heroku app by running the following command in the root of your project: `heroku create`
 
 Then, you'll want to add and commit all your project files, then push to Heroku, as follows:
+
 `git add -A
+
 git commit -m "Pushing to Heroku"
+
 git push heroku main`
 
 Now you can run `heroku open` to open the webpage.
