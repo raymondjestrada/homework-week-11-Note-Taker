@@ -1,5 +1,9 @@
 # Note Taker App
+
+https://still-sands-66677.herokuapp.com/
+
 https://github.com/raymondjestrada/homework-week-11-Note-Taker
+
 ## Description
 This app allows users to write, save, edit, and delete notes with a clean and user friendly interface
 ## Table of Contents 
@@ -10,11 +14,15 @@ This app allows users to write, save, edit, and delete notes with a clean and us
 * [Tests](#tests)
 * [Questions](#questions)
 ## Installation
+<<<<<<< HEAD
 The following necessary dependencies must be installed to run the application properly: express, fs, path
 
 - Run `npm i`: to download dependencies
 - Run `node server.js`: to run app in the terminal
 
+=======
+The following necessary dependencies must be installed to run the application properly: express, fs, path, heroku
+>>>>>>> df0b2d60446df01b6477f851929146ea237ac185
 ## Usage
 In order to use this app, click on the notes button. This will redirect the user to the notes page. The user can add a title, write the text and save by using the save button. The User can delete notes using the delete button. The user can edit using the edit button. 
 ## License
