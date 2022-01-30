@@ -11,6 +11,10 @@ This app allows users to write, save, edit, and delete notes with a clean and us
 * [Questions](#questions)
 ## Installation
 The following necessary dependencies must be installed to run the application properly: express, fs, path
+
+- Run `npm i`: to download dependencies
+- Run `node server.js`: to run app in the terminal
+
 ## Usage
 In order to use this app, click on the notes button. This will redirect the user to the notes page. The user can add a title, write the text and save by using the save button. The User can delete notes using the delete button. The user can edit using the edit button. 
 ## License
@@ -18,7 +22,7 @@ This project is not licensed.
 ## Contributing
 ​Contributors: N/A
 ## Tests
-The following is needed to run the test: N/A
+The following is needed to run the test: Jests
 ## Questions
 If you have any questions about the repo, open an issue or contact me directly at : https://github.com/raymondjestrada.
 
