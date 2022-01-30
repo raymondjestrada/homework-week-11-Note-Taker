@@ -35,6 +35,11 @@ Then, you'll want to add and commit all your project files, then push to Heroku,
 
 Now you can run `heroku open` to open the webpage.
 
+#Example
+Here is a screen shot of the Note Taker App
+![image](https://user-images.githubusercontent.com/87677207/151687803-5523892b-721b-4c37-85f1-6df40faeb447.png)
+
+
 ## Usage
 In order to use this app, click on the started notes button. This will redirect the user to the notes page. The user can add a title, write the text and save by using the save button. The User can delete notes using the delete button. The user can edit using the edit button. 
 
