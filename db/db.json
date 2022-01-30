@@ -1,22 +1,7 @@
 [
     {
-        "title": "hello",
-        "text": "hi\n",
+        "title": "Welcome to Note Taker!",
+        "text": "Please leave your messages here!",
         "id": "dddc9e0f-a9d2-4cbb-b286-d2115fc786c8"
-    },
-    {
-        "title": "SEFAF",
-        "text": "whA YP",
-        "id": "c0bfa415-40d9-423d-8b64-ead91c6f5ba3"
-    },
-    {
-        "title": "GROCERIES",
-        "text": "HELLO\n",
-        "id": "f3af0755-2149-4d96-b7ca-8db5c3dc3a45"
-    },
-    {
-        "title": "hi",
-        "text": "aef",
-        "id": "9a96eacf-6cbc-41d0-8567-0c4fcf609412"
     }
 ]
