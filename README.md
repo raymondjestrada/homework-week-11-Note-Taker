@@ -27,11 +27,11 @@ Create a new Heroku app by running the following command in the root of your pro
 
 Then, you'll want to add and commit all your project files, then push to Heroku, as follows:
 
-`git add -A
+`git add -A'
 
-git commit -m "Pushing to Heroku"
+'git commit -m "Pushing to Heroku"'
 
-git push heroku main`
+'git push heroku main`
 
 Now you can run `heroku open` to open the webpage.
 
