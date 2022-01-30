@@ -19,7 +19,7 @@ The following necessary dependencies must be installed to run the application pr
 
 - Run `node server.js`: to run app in the terminal
 
-Open browser and type http://localhost:3000/ to run this application on your local machine.
+Open browser and type http://localhost:3001/ to run this application on your local machine.
 
 To run to the app to `Heroku`, make sure your project is initialized as a Git repository.
 
